@@ -1,0 +1,517 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <style>
+        /* CORE FONTS & RESET */
+        @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600;800&display=swap');
+        body{font-family:'Times New Roman',serif;max-width:800px;margin:20px auto;padding:20px;color:#000;}
+        
+        /* IB HEADINGS */
+        .ib-h1{font-size:26px;font-weight:800;font-family:'EB Garamond',serif;text-transform:uppercase;margin:0 0 15px;border-bottom:3px solid #1a237e;padding-bottom:8px;}
+        .ib-h2{font-size:20px;font-weight:600;font-family:'EB Garamond',serif;margin:24px 0 10px;color:#1a237e;}
+        
+        /* BODY TEXT & LISTS */
+        .ib-body{font-size:16px;line-height:1.6;margin:8px 0;}
+        .ib-list{font-size:16px;line-height:1.6;margin:8px 0 8px 25px;padding:0;}
+        .ib-list li{margin-bottom:6px;}
+        
+        /* ===== STRATEGIC CALLOUT BOXES ===== */
+        /* FIXED: 'strong' is now inline by default. Box titles use .box-title */
+        .ib-callout{padding:14px;margin:18px 0;border-radius:8px;border-left:5px solid;font-size:15px;line-height:1.6;}
+        .box-title{font-family:'EB Garamond',serif;font-size:17px;display:block;margin-bottom:6px;font-weight:800;}
+        
+        /* ANALOGY - Soft Peach */
+        .analogy{background:#fff8f0;border:1.5px solid #ffb380;border-left-color:#ff7043;border-left-width:5px;}
+        /* DEFINITION - Light Lavender */
+        .def{background:#f3e5f5;border:1.5px solid #ce93d8;border-left-color:#ab47bc;border-left-width:5px;}
+        /* NOTE/TIP - Soft Green */
+        .note{background:#e8f5e9;border:1.5px solid #81c784;border-left-color:#4caf50;border-left-width:5px;}
+        /* EXAMPLE - Sky Blue */
+        .example{background:#e1f5fe;border:1.5px solid #4fc3f7;border-left-color:#0288d1;border-left-width:5px;}
+        
+        /* ===== IBDP SPECIAL BOXES ===== */
+        /* 🧠 EXAMINER TIP */
+        .examiner-tip{background:#e3f2fd;border:2px solid #1565c0;border-left:5px solid #1565c0;padding:14px;margin:18px 0;border-radius:6px;}
+        .examiner-tip .box-title{color:#0d47a1;}
+        
+        /* 🔍 TOK CONNECTION */
+        .tok-box{background:#f5f5f5;border:2px solid #616161;border-left:5px solid #616161;padding:14px;margin:18px 0;border-radius:6px;}
+        .tok-box .box-title{color:#212121;}
+        
+        /* 🌍 REAL-WORLD CONNECTION */
+        .realworld{background:#e0f2f1;border:2px solid #00897b;border-left:5px solid #00897b;padding:14px;margin:18px 0;border-radius:6px;}
+        .realworld .box-title{color:#004d40;}
+        
+        /* 📝 PAPER STRATEGY */
+        .paper-strategy{background:#fce4ec;border:2px solid #c2185b;border-left:5px solid #c2185b;padding:14px;margin:18px 0;border-radius:6px;}
+        .paper-strategy .box-title{color:#880e4f;}
+        
+        /* 🌐 EE LINK */
+        .ee-link{background:#f1f8e9;border:2px solid #558b2f;border-left:5px solid #558b2f;padding:14px;margin:18px 0;border-radius:6px;}
+        .ee-link .box-title{color:#33691e;}
+        
+        /* HIGHLIGHT KEY PHRASES */
+        .highlight{background:#fff59d;padding:1px 4px;border-radius:3px;font-weight:500;}
+        
+        /* IMAGES */
+        figure{margin:20px 0;text-align:center;}
+        .ib-img{max-width:100%;height:auto;border:2px solid #ddd;border-radius:8px;padding:5px;background:#fff;box-shadow:0 3px 8px rgba(0,0,0,0.08);}
+        figcaption{font-size:14px;font-family:'Times New Roman',serif;color:#555;margin-top:8px;line-height:1.4;max-width:90%;margin-left:auto;margin-right:auto;}
+
+        /* ===== QUESTION SECTION STYLES ===== */
+        .qbox{border:2px solid #999;border-radius:10px;padding:15px;margin:25px 0;background:#fff;}
+        .q-mcq{border-color:#2e7d32;background:#f1f8e9;}
+        .q-p1{border-color:#d84315;background:#ffe0b2;}
+        .q-p2{border-color:#6a1b9a;background:#f3e5f5;}
+        .qbox-title{font-size:18px;font-weight:700;margin:0 0 15px;font-family:'EB Garamond',serif;}
+        
+        .q-item{background:#fff;border:1px dashed #bbb;border-radius:6px;padding:12px;margin:10px 0;}
+        .q-stem{font-weight:bold;margin-bottom:8px;}
+        .options{list-style:none;padding-left:10px;}
+        
+        /* DROPDOWN ANSWERS */
+        details.ans summary{cursor:pointer;background:#e8e8e8;padding:6px 12px;border-radius:5px;font-weight:bold;font-size:14px;display:inline-block;margin-top:5px;border:1px solid #999;}
+        details.ans summary:hover{background:#d0d0d0;}
+        .ans-content{margin-top:10px;padding:12px;background:#f9f9f9;border-left:4px solid #1a237e;font-size:15px;border-radius:4px;}
+        .mark-tag{display:inline-block;background:#1a237e;color:#fff;font-size:11px;font-weight:bold;padding:2px 6px;border-radius:3px;margin-right:5px;font-family:monospace;}
+        
+        hr{border:0;border-top:2px solid #ccc;margin:40px 0;}
+
+    </style>
+    </head>
+    <body>
+
+    <!-- ===================== -->
+    <!-- CONTENT FROM NOTES -->
+    <!-- ===================== -->
+
+    <h1 class="ib-h1">A1.1.1 Functions and Interactions of the Main CPU Components</h1>
+
+    <h2 class="ib-h2">What is a CPU?</h2>
+    <ul class="ib-list">
+        <li>Stands for the "<strong>Central Processing Unit</strong>".</li>
+        <li>The part of the computer that is responsible for "<strong>thinking</strong>", "<strong>deciding</strong>" or "<strong>Controlling</strong>" what the computer does.</li>
+    </ul>
+
+    <h2 class="ib-h2">Core Components of the CPU</h2>
+    <p class="ib-body">The CPU consists of several <strong>key components</strong>, each with a specific role:</p>
+    <ol class="ib-list">
+        <li><strong>Registers:</strong> small, <strong>fast memory storage</strong> locations for holding current data and instructions being processed</li>
+        <li><strong>Units:</strong> Responsible for <strong>executing</strong> the algorithm steps
+            <ul style="list-style-type: lower-alpha; margin-left:20px;">
+                <li><strong>Arithmetic Logic Unit (ALU):</strong> arithmetic and logical operations.</li>
+                <li><strong>Control Unit (CU):</strong> <strong>Generates</strong> control signals to activate hardware units.</li>
+            </ul>
+        </li>
+        <li><strong>Busses:</strong> Responsible for <strong>carrying</strong> data and instructions from one component to another</li>
+    </ol>
+
+    <figure>
+        <a href="https://ibb.co/Y4QYHGJm">
+            <img src="https://i.ibb.co/Fk3NRtc2/image.png" alt="CPU Diagram showing cores, caches, registers and buses" class="ib-img">
+        </a>
+        <figcaption>
+            CPU diagram showing two cores with L1/L2 cache, shared L3 cache, registers, and address, data and control buses linking the CPU to main memory (RAM).
+        </figcaption>
+    </figure>
+
+    <div class="ib-callout analogy">
+        <span class="box-title">💡 Analogy</span>
+        <p>Computers are designed to help people with "<strong>thinking</strong>" tasks.</p>
+        <ul class="ib-list">
+            <li>Just as we need a brain to process the world around us, computers need one too.</li>
+            <li>For a computer, this brain is the <strong>Central Processing Unit (CPU)</strong>.</li>
+            <li>Like the <strong>human brain</strong>, it makes decisions and performs calculations <strong>based on data stored in</strong> short-term memory.</li>
+        </ul>
+    </div>
+
+    <h2 class="ib-h2">Arithmetic Logic Unit (ALU)</h2>
+    <ol class="ib-list">
+        <li>It does all the <strong>thinking!</strong></li>
+        <li>Performs <strong>arithmetic</strong> (add, subtract) and <strong>logical</strong> (AND, OR, NOT) <strong>operations</strong>.</li>
+        <li>Works with <strong>data from registers</strong>.</li>
+    </ol>
+
+    <h2 class="ib-h2">Control Unit (CU)</h2>
+    <ol class="ib-list">
+        <li>The boss or <strong>controller</strong> of the CPU.</li>
+        <li><strong>Orchestrates</strong> the fetch-decode-execute cycle.</li>
+        <li><strong>Decodes instructions</strong> and <strong>directs data flow</strong> between CPU, memory, and peripherals.</li>
+        <li>Sends <strong>control signals</strong> via the <strong>control bus</strong>.</li>
+    </ol>
+
+    <div class="ib-callout examiner-tip">
+        <span class="box-title">🧠 Examiner Tip: Core Distinction</span>
+        <p>In exam answers, always emphasize that the <span class="highlight">ALU performs operations while the CU coordinates them</span>. The ALU is the "executor," the CU is the "orchestrator."</p>
+    </div>
+
+    <h2 class="ib-h2">Registers: The CPU's Fastest Memory</h2>
+
+    <div class="ib-callout def">
+        <span class="box-title">📖 Definition: Registers</span>
+        <strong>Registers</strong> are small, high-speed storage locations within the CPU.
+    </div>
+
+    <p class="ib-body">They temporarily hold data and instructions during execution.</p>
+    <ol class="ib-list">
+        <li><strong>Instruction Register (IR)</strong>
+            <ul style="list-style-type: lower-alpha;"><li><strong>Holds</strong> the current instruction being executed.</li></ul>
+        </li>
+        <li><strong>Program Counter (PC)</strong>
+            <ul style="list-style-type: lower-alpha;"><li><strong>Stores</strong> the address of the next instruction to be executed.</li></ul>
+        </li>
+        <li><strong>Memory Address Register (MAR)</strong>
+            <ul style="list-style-type: lower-alpha;"><li><strong>Holds</strong> the address of the memory location to be accessed.</li></ul>
+        </li>
+        <li><strong>Memory Data Register (MDR)</strong>
+            <ul style="list-style-type: lower-alpha;"><li><strong>Stores</strong> data being transferred to or from memory.</li></ul>
+        </li>
+        <li><strong>Accumulator (AC)</strong>
+            <ul style="list-style-type: lower-alpha;"><li><strong>Holds</strong> intermediate results of arithmetic and logical operations.</li></ul>
+        </li>
+    </ol>
+
+    <div class="ib-callout examiner-tip">
+        <span class="box-title">🧠 Examiner Tip: Register Confusion</span>
+        <p>Students often confuse <span class="highlight">MAR (address) with MDR (data)</span>. Remember: MAR = location, MDR = contents. One specifies where, the other carries what.</p>
+    </div>
+
+    <h2 class="ib-h2">Buses: The Communication Pathways</h2>
+
+    <div class="ib-callout def">
+        <span class="box-title">📖 Definition: Buses</span>
+        <strong>Buses</strong> are communication pathways that transfer data between CPU components and other parts of the computer.
+    </div>
+
+    <ol class="ib-list">
+        <li><strong>Address Bus</strong>
+            <ul style="list-style-type: lower-alpha;">
+                <li><strong>Carries</strong> memory addresses from the CPU to specify where data should be read or written.</li>
+                <li>This is <strong>unidirectional</strong> and only goes from the CPU to the memory</li>
+            </ul>
+        </li>
+        <li><strong>Data Bus</strong>
+            <ul style="list-style-type: lower-alpha;">
+                <li><strong>Transfers</strong> actual data between the CPU, memory, and other components.</li>
+                <li><strong>Bidirectional</strong>, allowing data flow in both directions.</li>
+            </ul>
+        </li>
+        <li><strong>Control Bus</strong>
+            <ul style="list-style-type: lower-alpha;">
+                <li><strong>Carries</strong> control signals from the CU to manage actions and timing.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <div class="ib-callout paper-strategy">
+        <span class="box-title">📝 Paper 1 Strategy</span>
+        <p>When asked about buses, include <span class="highlight">directionality</span> in your answer. State clearly whether each bus is unidirectional or bidirectional—examiners reward this precision.</p>
+    </div>
+
+    <h2 class="ib-h2">Cache</h2>
+    <ol class="ib-list">
+        <li>A small, <strong>high-speed memory</strong> located <strong>inside</strong> or very close to the CPU.</li>
+        <li><strong>Purpose:</strong> Stores frequently used data and instructions to speed up access and reduce the need to fetch from slower main memory (RAM).</li>
+        <li><strong>Levels:</strong>
+            <ul style="list-style-type: lower-alpha;">
+                <li>L1 Cache: Smallest and fastest, closest to the CPU core.</li>
+                <li>L2 Cache: Larger but slightly slower.</li>
+                <li>L3 Cache: Even larger, shared across cores in multi-core CPUs.</li>
+            </ul>
+        </li>
+        <li><strong>How it works:</strong> When the CPU needs data, it first checks the cache. If the data is there (<strong>cache hit</strong>), it is retrieved quickly. If not (<strong>cache miss</strong>), the CPU fetches it from RAM.</li>
+        <li><strong>Benefit:</strong> Improves processing speed and overall system performance by reducing latency.</li>
+    </ol>
+
+    <div class="ib-callout realworld">
+        <span class="box-title">🌍 Real-World Connection: Cache in Modern Devices</span>
+        <p>Smartphones use <span class="highlight">L1 and L2 cache</span> to optimize battery life. By keeping frequently accessed data in fast, nearby cache, the CPU avoids expensive (power-hungry) trips to main RAM.</p>
+    </div>
+
+    <h2 class="ib-h2">Processors: Single-Core, Multi-Core, and Co-Processors</h2>
+    <ol class="ib-list">
+        <li><strong>Single-Core Processors</strong>
+            <ul style="list-style-type: lower-alpha;">
+                <li><strong>One</strong> processing unit handles one instruction at a time.</li>
+                <li><strong>Limitations:</strong> Struggle with multitasking and parallel processing.</li>
+            </ul>
+        </li>
+        <li><strong>Multi-Core Processors</strong>
+            <ul style="list-style-type: lower-alpha;">
+                <li><strong>Multiple</strong> independent cores execute instructions simultaneously.</li>
+                <li><strong>Benefits:</strong> Improved performance for multitasking and parallel processing.</li>
+            </ul>
+        </li>
+        <li><strong>Co-Processors</strong>
+            <ul style="list-style-type: lower-alpha;">
+                <li><strong>Specialized</strong> processors that offload specific tasks from the CPU.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <div class="ib-callout example">
+        <span class="box-title">ℹ️ Example: Co-Processors in Action</span>
+        Graphics processing units (GPUs) for <strong>rendering</strong>, digital signal processors (DSPs) for <strong>signal processing</strong>.
+    </div>
+
+    <h2 class="ib-h2">Interactions Between CPU Components</h2>
+
+    <div class="ib-callout def">
+        <span class="box-title">📖 Definition: Fetch-Decode-Execute</span>
+        The basic operational process of a computer's Central Processing Unit (CPU), in which instructions are carried out:
+        <ol class="ib-list">
+            <li><strong>Fetch:</strong> The CPU retrieves an instruction from memory.</li>
+            <li><strong>Decode:</strong> The CPU interprets (decodes) the instruction to determine what action is required.</li>
+            <li><strong>Execute:</strong> The CPU performs the specified action, such as a calculation, data movement, or decision-making.</li>
+        </ol>
+        This cycle repeats continuously, allowing the computer to run programs and process data.
+    </div>
+
+    <p class="ib-body">The CPU components work together seamlessly to execute instructions:</p>
+    <ol class="ib-list">
+        <li><strong>Fetch:</strong>
+            <ul style="list-style-type: lower-alpha;">
+                <li>The PC sends the address of the next instruction to the MAR.</li>
+                <li>The instruction is fetched from memory and stored in the IR.</li>
+            </ul>
+        </li>
+        <li><strong>Decode:</strong>
+            <ul style="list-style-type: lower-alpha;">
+                <li>The CU decodes the instruction in the IR, generating control signals to direct the ALU and other components.</li>
+            </ul>
+        </li>
+        <li><strong>Execute:</strong>
+            <ul style="list-style-type: lower-alpha;">
+                <li>The ALU performs the required operation, using data from registers like the AC.</li>
+                <li>Results are stored back in the AC or written to memory via the MDR.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <div class="ib-callout analogy">
+        <span class="box-title">💡 Analogy: Fetch-Decode-Execute</span>
+        Think of it like following a recipe to cook a meal.
+        <ul class="ib-list">
+            <li><strong>Fetch:</strong> You go to the recipe book and pick the next instruction (e.g., "chop onions").</li>
+            <li><strong>Decode:</strong> You read and understand what the instruction means and what tools or ingredients you need.</li>
+            <li><strong>Execute:</strong> You carry out the instruction by chopping the onions.</li>
+        </ul>
+    </div>
+
+    <div class="ib-callout tok-box">
+        <span class="box-title">🔍 TOK Connection: Knowledge Questions</span>
+        <ul class="ib-list">
+            <li>How do we <strong>know</strong> that the Fetch-Decode-Execute cycle is the "correct" model for CPU operation? (Methodology & Certainty)</li>
+            <li>Is the computer "thinking" during the Execute stage, or just mechanically following instructions? (Nature of Knowledge)</li>
+        </ul>
+    </div>
+
+    <h2 class="ib-h2">Clock</h2>
+    <ol class="ib-list">
+        <li>The clock is a vital component of the CPU that generates a <strong>regular sequence of electrical pulses</strong>.</li>
+        <li>These pulses <strong>synchronize</strong> all operations in the CPU, ensuring that instructions are executed in an orderly manner.</li>
+        <li><strong>Fetch-Decode-Execute Cycle:</strong> The CPU repeatedly fetches instructions from memory, decodes them, and executes them.</li>
+        <li>The clock acts like a metronome, providing timing signals so that different parts of the CPU work together smoothly.</li>
+    </ol>
+
+    <div class="ib-callout analogy">
+        <span class="box-title">💡 Analogy: Clock as Metronome</span>
+        CPU clock speed is like the tempo set by a metronome for musicians.
+        <ul class="ib-list">
+            <li>A metronome ticks at a <strong>regular pace</strong>, guiding musicians on when to play each note.</li>
+            <li><strong>The faster the metronome ticks, the more notes can be played in the same amount of time.</strong></li>
+            <li>Similarly, a <strong>CPU's clock speed dictates how many operations it can perform per second.</strong></li>
+            <li><strong>A higher clock speed means the CPU can "play" (process) more instructions in less time</strong>, just as faster metronome ticks allow a musician to perform a piece more quickly.</li>
+        </ul>
+    </div>
+
+    <p class="ib-body"><strong>Functions of the clock:</strong></p>
+    <ol class="ib-list">
+        <li><strong>Controls the pace</strong> at which instructions are carried out.</li>
+        <li><strong>Coordinates</strong> the activities of the ALU, CU, registers, and buses.</li>
+    </ol>
+
+    <h2 class="ib-h2">Clock Speed</h2>
+    <ol class="ib-list">
+        <li>Clock speed determines how many <strong>clock cycles occur per second</strong>.</li>
+        <li>Measured in <strong>Hertz (Hz)</strong></li>
+        <li><strong>1 Hz = 1 cycle per second.</strong></li>
+        <li>Modern CPUs are usually measured in <strong>Gigahertz (GHz)</strong> (1 GHz = 1 billion cycles per second).</li>
+    </ol>
+
+    <p class="ib-body"><strong>Impact of clock speed:</strong></p>
+    <ol class="ib-list">
+        <li>A <strong>higher clock speed</strong> means the CPU can process more instructions per second → generally leads to <strong>faster performance</strong>.</li>
+        <li>Example: A 3.5 GHz CPU can perform 3.5 billion cycles per second.</li>
+    </ol>
+
+    <div class="ib-callout note">
+        <span class="box-title">📝 Important Note: Clock Speed ≠ Performance</span>
+        <ul class="ib-list">
+            <li>More clock speed does not always mean better performance (depends on architecture, number of cores, heat, and power limits).</li>
+            <li>Clock speed affects how quickly instructions move through the fetch-decode-execute cycle.</li>
+        </ul>
+    </div>
+
+    <h2 class="ib-h2">The Significance of Understanding CPU Components</h2>
+    <ol class="ib-list">
+        <li><strong>Efficiency:</strong> Knowing how the CPU works helps optimize software for better performance.</li>
+        <li><strong>Troubleshooting:</strong> Understanding CPU interactions aids in diagnosing hardware and software issues.</li>
+        <li><strong>Innovation:</strong> Insights into CPU architecture drive advancements in computing technology.</li>
+    </ol>
+
+    <div class="ib-callout ee-link">
+        <span class="box-title">🌐 EE Focus: Extended Essay Research Angles</span>
+        <ul class="ib-list">
+            <li><strong>Narrowed Topic:</strong> "The Trade-off Between Clock Speed and Power Consumption in Modern CPU Design"</li>
+            <li><strong>Methodology:</strong> Comparative analysis of performance benchmarks vs. power consumption across generations.</li>
+        </ul>
+    </div>
+
+    <div class="ib-callout example">
+        <span class="box-title">📝 Self Review Checklist</span>
+        <ul class="ib-list">
+            <li>✓ Can you explain what a CPU is and what role it plays in a computer system?</li>
+            <li>✓ Do you know what registers, the ALU, and the Control Unit do inside the CPU?</li>
+            <li>✓ Can you name and describe the purpose of key CPU registers like the PC, MAR, MDR and IR?</li>
+            <li>✓ You understand the role of buses (address, data, control) in moving data and instructions?</li>
+            <li>✓ You know what the clock does in a CPU and why clock speed matters.</li>
+            <li>✓ Can you explain the difference between single-core, multi-core, and co-processors?</li>
+            <li>✓ Do you understand why more GHz doesn't always mean better overall performance?</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <!-- ===================== -->
+    <!-- QUESTIONS (Theme A -> Paper 1 only) -->
+    <!-- ===================== -->
+
+    <h2 class="ib-h2" style="margin-top:40px;">📌 End-of-Section Questions — A1.1.1</h2>
+
+    <!-- 3 MCQs: Student understanding -->
+    <div class="qbox q-mcq">
+        <div class="qbox-title">🟩 Student Understanding (MCQ)</div>
+
+        <div class="q-item">
+            <p class="q-stem">Q1. Which component is responsible for generating control signals to activate hardware units?</p>
+            <ul class="options"><li>A. ALU</li><li>B. CU</li><li>C. MDR</li><li>D. Cache</li></ul>
+            <details class="ans"><summary>Show Answer</summary>
+                <div class="ans-content">
+                    <p><strong>Answer:</strong> B — CU</p>
+                    <p><span class="mark-tag">REASONING</span> The notes state the Control Unit (CU) "Generates control signals to activate hardware units."</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="q-item">
+            <p class="q-stem">Q2. Which bus carries actual data between CPU and memory and is bidirectional?</p>
+            <ul class="options"><li>A. Address Bus</li><li>B. Data Bus</li><li>C. Control Bus</li><li>D. Cache Bus</li></ul>
+            <details class="ans"><summary>Show Answer</summary>
+                <div class="ans-content">
+                    <p><strong>Answer:</strong> B — Data Bus</p>
+                    <p><span class="mark-tag">REASONING</span> The Data Bus transfers actual data and is bidirectional (data flows both ways).</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="q-item">
+            <p class="q-stem">Q3. Which register stores the address of the next instruction to be executed?</p>
+            <ul class="options"><li>A. IR</li><li>B. PC</li><li>C. MAR</li><li>D. AC</li></ul>
+            <details class="ans"><summary>Show Answer</summary>
+                <div class="ans-content">
+                    <p><strong>Answer:</strong> B — PC</p>
+                    <p><span class="mark-tag">REASONING</span> The Program Counter (PC) "Stores the address of the next instruction to be executed."</p>
+                </div>
+            </details>
+        </div>
+    </div>
+
+    <!-- 5 Paper 1 questions: Theme A concepts; various marks -->
+    <div class="qbox q-p1">
+        <div class="qbox-title">🟧 Paper 1 (Theme A: Concepts)</div>
+
+        <div class="q-item">
+            <p class="q-stem">Q1. <strong>Define</strong> the term CPU. [2]</p>
+            <details class="ans"><summary>Show Mark Scheme</summary>
+                <div class="ans-content">
+                    <p><em>Award up to [2].</em></p>
+                    <ul class="ib-list">
+                        <li><span class="mark-tag">A1</span> CPU stands for <strong>Central Processing Unit</strong>.</li>
+                        <li><span class="mark-tag">A1</span> It is responsible for <strong>controlling</strong> what the computer does / executing instructions (thinking/deciding).</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <div class="q-item">
+            <p class="q-stem">Q2. <strong>Distinguish</strong> between the functions of the <em>Arithmetic Logic Unit (ALU)</em> and the <em>Control Unit (CU)</em>. [4]</p>
+            <details class="ans"><summary>Show Mark Scheme</summary>
+                <div class="ans-content">
+                    <p><em>Award 1 mark per correct point up to [4].</em></p>
+                    <ul class="ib-list">
+                        <li><span class="mark-tag">A1</span> The <strong>ALU</strong> performs <strong>arithmetic</strong> operations (e.g., add, subtract).</li>
+                        <li><span class="mark-tag">A1</span> The <strong>ALU</strong> performs <strong>logical</strong> operations (e.g., AND, OR, NOT).</li>
+                        <li><span class="mark-tag">A1</span> The <strong>CU</strong> <strong>decodes instructions</strong> and directs data flow between CPU, memory and peripherals.</li>
+                        <li><span class="mark-tag">A1</span> The <strong>CU</strong> sends <strong>control signals</strong> via the control bus / orchestrates fetch-decode-execute.</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <div class="q-item">
+            <p class="q-stem">Q3. <strong>Explain</strong> the difference between the <em>Memory Address Register (MAR)</em> and the <em>Memory Data Register (MDR)</em>. [4]</p>
+            <details class="ans"><summary>Show Mark Scheme</summary>
+                <div class="ans-content">
+                    <p><em>Award 1 mark per correct point up to [4].</em></p>
+                    <ul class="ib-list">
+                        <li><span class="mark-tag">A1</span> The <strong>MAR</strong> holds the <strong>address</strong> of the memory location to be accessed.</li>
+                        <li><span class="mark-tag">A1</span> The <strong>MDR</strong> holds the <strong>data/instruction</strong> being transferred to or from memory.</li>
+                        <li><span class="mark-tag">A1</span> Therefore, MAR is about <strong>where</strong> in memory, while MDR is about <strong>what contents</strong> are moved.</li>
+                        <li><span class="mark-tag">A1</span> In a read, memory returns contents into MDR; in a write, MDR provides contents to be stored at the MAR address.</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <div class="q-item">
+            <p class="q-stem">Q4. <strong>Describe</strong> the roles and directionality of the Address Bus, Data Bus, and Control Bus. [6]</p>
+            <details class="ans"><summary>Show Mark Scheme</summary>
+                <div class="ans-content">
+                    <p><em>Award 1 mark per correct point up to [6].</em></p>
+                    <ul class="ib-list">
+                        <li><span class="mark-tag">A1</span> <strong>Address Bus</strong> carries memory addresses from CPU to specify where data is read/written.</li>
+                        <li><span class="mark-tag">A1</span> Address Bus is <strong>unidirectional</strong> (CPU → Memory).</li>
+                        <li><span class="mark-tag">A1</span> <strong>Data Bus</strong> transfers actual data between CPU, memory and other components.</li>
+                        <li><span class="mark-tag">A1</span> Data Bus is <strong>bidirectional</strong> (CPU ↔ Memory).</li>
+                        <li><span class="mark-tag">A1</span> <strong>Control Bus</strong> carries control signals from CU to manage actions and timing (e.g., read/write).</li>
+                        <li><span class="mark-tag">A1</span> Control signals coordinate when components act (synchronization/management of operations).</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <div class="q-item">
+            <p class="q-stem">Q5. <strong>Discuss</strong> why a higher clock speed does not always mean better overall performance. [8]</p>
+            <details class="ans"><summary>Show Mark Scheme</summary>
+                <div class="ans-content">
+                    <p><em>Marks are awarded for clear, linked discussion using points from the notes. Award up to [8].</em></p>
+                    <ul class="ib-list">
+                        <li><span class="mark-tag">A1</span> Clock speed is the number of cycles per second (Hz/GHz), so higher speed can allow more operations per second.</li>
+                        <li><span class="mark-tag">A1</span> However, performance also depends on <strong>architecture</strong> (how much work is done per cycle).</li>
+                        <li><span class="mark-tag">A1</span> CPU performance is affected by <strong>number of cores</strong>; multicore can outperform a higher-GHz single core for parallel tasks.</li>
+                        <li><span class="mark-tag">A1</span> Memory speed and bottlenecks matter; slow RAM/cache misses can limit performance even with high GHz.</li>
+                        <li><span class="mark-tag">A1</span> Higher clock speeds increase <strong>heat</strong> and <strong>power consumption</strong>, which may trigger thermal throttling.</li>
+                        <li><span class="mark-tag">A1</span> Some workloads cannot utilize extra cycles effectively (e.g., waiting for I/O or memory).</li>
+                        <li><span class="mark-tag">M1</span> Therefore, GHz alone is not a complete measure; balanced design (cache, cores, architecture) often delivers better real performance.</li>
+                        <li><span class="mark-tag">R1</span> Conclusion: A CPU with lower GHz but better cache/cores/architecture can outperform a higher-GHz CPU in real-world applications.</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+    </div>
+
+    </body>
+    </html>
